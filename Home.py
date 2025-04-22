@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 from click import style
-from streamlit import exception
+from streamlit import exception, columns
 
 st.set_page_config(layout="wide")
 
@@ -9,17 +9,19 @@ url = "https://api.nasa.gov/planetary/apod?api_key=TEnOQ9VTaMy71KKY9rUiLsYbECXms
 response = requests.get(url)
 content = response.json()
 
+st.image("logo1.png")
+
 st.markdown(
     """
     <style>
     .fancy-header {
-        color: #e91e63;
-        font-size: 64px;
+        color: #1f77b4;
+        font-size: 50px;
         font-weight: bold;
         text-shadow: 1px 1px 2px #000000;
     }
     </style>
-    <div class='fancy-header'>Nasa's Astronomy of the Day</div>
+    <div class='fancy-header'>Nasa's Astronomy Picture of the Day</div>
     """,
     unsafe_allow_html=True
 )
